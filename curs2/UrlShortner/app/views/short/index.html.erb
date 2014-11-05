@@ -1,0 +1,14 @@
+<h1>Insert an url for shorting</h1>
+<form action="/shorturl" method="post">
+<input type="text" name="aici"  placeholder="Insert url here">
+<button type="submit">Short it!</button>
+</form>
+<% if session['shorturl'] != nil %>
+	<p>Shortend link is: <%= session['shorturl'] %></p>
+	<form action="/goto/<%= session['shorturl'] %>" method="POST">
+		<button type="submit">Go</button>
+	</form>
+	<% session['shorturl'] = nil %>
+<% end %>
+
+ 
