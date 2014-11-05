@@ -1,0 +1,26 @@
+<html>
+	<head></head>
+	<body>
+	   <form action="/doadditem" method="POST">
+		<input name="todoitem">
+		<button type = "submit">Add item</button>
+		</form>
+		<table>
+			<% session[:item].each do |item| %>
+			<tr>
+			<td>
+				<form action="/markasdone/<%= item['id'] %>" method="POST">
+				<button type="submit">Mark as done</button>
+				</form>
+			</td>
+			<td>
+			  <%= item['description'] %>
+			  <% if item['done'] %>
+				 has been done
+			<% end %>
+			</td>
+			</tr>
+			<%end%>
+		</table>
+	</body>
+</html>
