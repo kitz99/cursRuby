@@ -1,0 +1,9 @@
+<form action="/process_prog_lang_choice" method="post">
+<% @cbs.each do |cb| %>
+  <label><input type="checkbox" name="cb_prog_lang_<%= cb.id %>" value="prog_lang_<%= cb.id %>">&nbsp;<%= cb.pl_name %></label>
+  <br>
+<% end %>
+  <br>
+  <button type="submit">That is my choice</button>
+</form>
+

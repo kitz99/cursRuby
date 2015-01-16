@@ -1,0 +1,11 @@
+<% if session[:cb_id] %>
+  <p>Your favorite programming languages are:
+	<% @myArr.each do |p| %>
+		<%= p.pl_name %>
+	<% end %>
+  </p>
+<% else %>
+  <p>You have not made a choice</p>
+<% end %>
+<br>
+<a href="/show">Back</a>

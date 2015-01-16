@@ -1,0 +1,19 @@
+<h1>URL SHORTNER SERVICE</h1>
+<form action="/shorturl" method="post">
+	<input type="text" name="urlPentruScurtat"  placeholder="Insert url here">
+	<button type="submit">Short it!</button>
+</form>
+
+<% if session[:scurt] != nil %>
+	<p>Shortend link for <%= session[:lung] %>: <a href="http://localhost:3000/<%= session[:scurt] %>">http://localhost:3000/<%= session[:scurt] %></a></p>
+	<% session[:scurt] = nil %>
+	<% session[:lung] = nil %>
+<% end %>
+
+<h2>URL-uri scurtate</h2>
+<ul>
+	<% @urls.each do |url| %>
+		<li><a href="http://localhost:3000/<%= url.short %>">http://localhost:3000/<%= url.short %></a>
+				redirectioneaza catre:<strong> <%= url.long %>	</strong></li>
+	<% end %>
+</ul>
